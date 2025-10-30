@@ -1,14 +1,22 @@
 import { useNavigate } from 'react-router-dom'
+import { useAppStore } from '../store/useAppStore'
 
 export default function SelectFrame() {
     const navigate = useNavigate()
+    const setFrame = useAppStore((s)=>s.setFrame)
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '100px' }}>
-        <h1>프레임 선택 페이지</h1>
-        <p>여기서 프레임을 선택할 수 있습니다.</p>
+        <div 
+            style={{ 
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%', 
+            }}
+        >
+        <p>원하는 프레임을 선택하세요</p>
         <button
-            onClick={() => navigate('/takePicture')}
+            onClick={() => {setFrame("1"); navigate('/takePicture')}}
             style={{
             padding: '10px 20px',
             fontSize: '18px',
@@ -16,7 +24,18 @@ export default function SelectFrame() {
             cursor: 'pointer',
             }}
         >
-            사진 찍기 화면으로 이동
+            혼자찍기
+        </button>
+        <button
+            onClick={() => {setFrame("2"); navigate('/takePicture')}}
+            style={{
+            padding: '10px 20px',
+            fontSize: '18px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            }}
+        >
+            같이 찍기
         </button>
         </div>
     )
