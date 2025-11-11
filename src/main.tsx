@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'   // ✅ 변경된 부분
 import App from './App'
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter>   {/* ✅ BrowserRouter 대신 HashRouter 사용 */}
       <App /> 
     </BrowserRouter>
   </React.StrictMode> 

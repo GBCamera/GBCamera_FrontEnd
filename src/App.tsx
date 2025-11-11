@@ -1,11 +1,18 @@
-  import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import SelectFrame from './pages/SelectFrame'
-import TakePicture from './pages/TakePicture'
-import SelectImage from './pages/SelectImage'
+import { Routes, Route } from 'react-router-dom'
 import Result from './pages/Result'
-import Setting from './pages/Setting'
 import backgroundImg from './image/background.jpg'
+
+// 배포(프로덕션) 환경에서 콘솔 전부 비활성화 (Vite)
+if (import.meta.env.PROD) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  console.log = () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  console.warn = () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  console.error = () => {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  console.info = () => {}
+}
 
 export default function App() {
   return (
@@ -35,14 +42,9 @@ export default function App() {
         }}
       >
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/selectFrame" element={<SelectFrame />} />
-          <Route path="/takePicture" element={<TakePicture />} />
-          <Route path="/selectImage" element={<SelectImage />} />
-          <Route path="/result" element={<Result />} />
+          <Route path="/" element={<Result />} />
+          <Route path="/:index" element={<Result />} />
         </Routes>
-        
       </div>
     </div>
   )
