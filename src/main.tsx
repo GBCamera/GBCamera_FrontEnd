@@ -5,7 +5,7 @@ import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>   {/* ✅ BrowserRouter 대신 HashRouter 사용 */}
+    <BrowserRouter>   
       <App /> 
     </BrowserRouter>
   </React.StrictMode> 
