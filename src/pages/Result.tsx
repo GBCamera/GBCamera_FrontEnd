@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-const API_BASE = import.meta.env.PROD
-  ? '/api'
-  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11'); // 로컬 개발 시
+// const API_BASE = import.meta.env.PROD
+//   ? '/api'
+//   : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11'); // 로컬 개발 시
 
 export default function Result() {
   const { index } = useParams()
@@ -26,7 +26,7 @@ export default function Result() {
       setError(null)
       setNotFound(false)
       try {
-        const res = await fetch(`${API_BASE}/find`, {
+        const res = await fetch(`http://3.36.86.11/find`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ index }),
