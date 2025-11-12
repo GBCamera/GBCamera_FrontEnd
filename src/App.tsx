@@ -3,16 +3,16 @@ import Result from './pages/Result'
 import backgroundImg from './image/background.jpg'
 
 // 배포(프로덕션) 환경에서 콘솔 전부 비활성화 (Vite)
-if (import.meta.env.PROD) {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  console.log = () => {}
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  console.warn = () => {}
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  console.error = () => {}
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  console.info = () => {}
-}
+// if (import.meta.env.PROD) {
+//   // eslint-disable-next-line @typescript-eslint/no-empty-function
+//   console.log = () => {}
+//   // eslint-disable-next-line @typescript-eslint/no-empty-function
+//   console.warn = () => {}
+//   // eslint-disable-next-line @typescript-eslint/no-empty-function
+//   console.error = () => {}
+//   // eslint-disable-next-line @typescript-eslint/no-empty-function
+//   console.info = () => {}
+// }
 
 export default function App() {
   return (
