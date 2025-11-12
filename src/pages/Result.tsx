@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+/**
+ * 배포(프로덕션): /api 로 호출 → Vercel 서버리스 함수가 EC2로 프록시 (CORS/Mixed Content 회피)
+ * 로컬(개발): VITE_API_BASE_URL이 있으면 그걸 쓰고, 없으면 EC2 IP 직접 호출
+ *   예) .env.local
+ *       VITE_API_BASE_URL=http://3.36.86.11
+ */
 const API_BASE = import.meta.env.PROD
   ? '/api'
-  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11');
+  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11')
 
 export default function Result() {
   const { index } = useParams()

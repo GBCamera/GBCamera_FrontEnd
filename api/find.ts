@@ -3,14 +3,27 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const UPSTREAM = process.env.API_UPSTREAM ?? 'http://3.36.86.11';
 
+// 공통 CORS 헤더 (동일출처지만 JSON은 preflight가 뜹니다)
+function setCors(res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // 필요시 특정 도메인으로 교체
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  setCors(res);
+
+  // ✅ 프리플라이트 허용
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'POST, OPTIONS');
     return res.status(405).end('Method Not Allowed');
   }
 
   try {
-    // 프론트에서 온 JSON 바디를 그대로 백엔드로 전달
     const upstreamRes = await fetch(`${UPSTREAM}/find`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
