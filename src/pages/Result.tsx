@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
-
+console.log(API_BASE)
 export default function Result() {
   const { index } = useParams()
   const [image, setImage] = useState<string | null>(null)
