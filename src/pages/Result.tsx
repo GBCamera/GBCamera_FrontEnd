@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const API_BASE = import.meta.env.PROD
-  ? "/api"
-  : (import.meta.env.VITE_API_BASE_URL ?? "");
+  ? '/api'
+  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11'); // 로컬 개발 시
 
 export default function Result() {
   const { index } = useParams()

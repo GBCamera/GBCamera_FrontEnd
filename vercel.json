@@ -1,6 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/api/:path*", "destination": "http://3.36.86.11/:path*" },
-    { "source": "/(.*)", "destination": "/" }
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
