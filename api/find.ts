@@ -1,7 +1,7 @@
 // api/find.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const UPSTREAM = process.env.API_UPSTREAM ?? 'http://3.36.86.11';
+const UPSTREAM = process.env.API_UPSTREAM ?? 'http://3.36.53.174';
 
 // 공통 CORS 헤더 (동일출처지만 JSON은 preflight가 뜹니다)
 function setCors(res: VercelResponse) {

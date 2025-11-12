@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
  */
 const API_BASE = import.meta.env.PROD
   ? '/api'
-  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.86.11')
+  : (import.meta.env.VITE_API_BASE_URL ?? 'http://3.36.53.174')
 
 export default function Result() {
   const { index } = useParams()
